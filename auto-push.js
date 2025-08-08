@@ -1,10 +1,18 @@
+/*
+ * @Author: ChenxiMoon 2403133073@qq.com
+ * @Date: 2025-08-08 23:15:16
+ * @LastEditors: ChenxiMoon 2403133073@qq.com
+ * @LastEditTime: 2025-08-09 01:09:09
+ * @FilePath: \undefinedf:\Zmk\DailyNotes\auto-push.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 const chokidar = require('chokidar');
 const { exec } = require('child_process');
 const path = require('path');
 
 const projectRoot = path.resolve(__dirname); // 脚本所在目录，一般放项目根目录
-const watcher = chokidar.watch('docs', {
-  ignored: /(^|[\/\\])\../, // 忽略隐藏文件和文件夹
+const watcher = chokidar.watch('F:\\Zmk\\DailyNotes', {
+  ignored: /(^|[\/\\])\../,
   persistent: true,
 });
 
