@@ -22,22 +22,24 @@ watcher.on('all', (event, filePath) => {
     exec('git add -A', execOptions, (err, stdout, stderr) => {
       if (err) {
         console.error('git add 失败:', err);
+        console.error(stderr);
         return;
       }
       console.log('git add 成功');
+      if (stdout) console.log('git add 输出:', stdout);
+      if (stderr) console.log('git add 错误输出:', stderr);
 
       exec('git commit -m "docs: 自动更新文档"', execOptions, (err2, stdout2, stderr2) => {
         if (err2) {
-          // 可能无变化导致无法提交
           if (
             stderr2.includes('nothing to commit') ||
             stderr2.includes('没有要提交的更改')
           ) {
             console.log('无新的变动，跳过提交');
           } else {
+            console.error('git commit 失败:', err2);
             console.error('git commit stdout:', stdout2);
             console.error('git commit stderr:', stderr2);
-            console.error('git commit 失败:', err2);
           }
           return;
         }
@@ -50,6 +52,8 @@ watcher.on('all', (event, filePath) => {
             console.error('git push stderr:', stderr3);
           } else {
             console.log('git push 成功！');
+            if (stdout3) console.log('git push 输出:', stdout3);
+            if (stderr3) console.log('git push 错误输出:', stderr3);
           }
         });
       });
