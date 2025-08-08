@@ -12,29 +12,30 @@ watcher.on('all', (event, path) => {
   console.log(`文件变化: ${event} -> ${path}`);
 
   if (timeout) clearTimeout(timeout);
-  // 防抖，避免频繁提交
   timeout = setTimeout(() => {
     console.log('开始执行 git add、commit 和 push ...');
 
-    exec('git add docs', (err) => {
+    // 把所有改动（新增/修改/删除）都暂存
+    exec('git add -A', (err) => {
       if (err) {
         console.error('git add 失败:', err);
         return;
       }
+
       exec('git commit -m "docs: 自动更新文档"', (err2, stdout, stderr) => {
         if (err2) {
+          console.error('git commit stderr:', stderr);
           if (
             stderr.includes('nothing to commit') ||
-            stderr.includes('没有要提交的更改') // 兼容中文git提示
+            stderr.includes('没有要提交的更改')
           ) {
             console.log('无新的变动，跳过提交');
           } else {
             console.error('git commit 失败:', err2);
-            return;
           }
-        } else {
-          console.log('git commit 成功:', stdout);
+          return;
         }
+        console.log('git commit 成功:', stdout);
 
         exec('git push origin main', (err3, stdout3, stderr3) => {
           if (err3) {
@@ -45,7 +46,7 @@ watcher.on('all', (event, path) => {
         });
       });
     });
-  }, 2000); // 2秒防抖
+  }, 2000);
 });
 
 console.log('自动提交推送监听已启动，正在监控 docs 目录...');
