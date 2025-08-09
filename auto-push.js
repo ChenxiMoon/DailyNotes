@@ -16,6 +16,7 @@ const watcher = chokidar.watch('F:\\Zmk\\DailyNotes', {
   persistent: true,
 });
 
+
 let timeout = null;
 
 watcher.on('all', (event, filePath) => {

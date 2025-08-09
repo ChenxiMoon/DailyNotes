@@ -11,12 +11,13 @@ jobs:
 
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '16'
+        node-version: '22'
+        cache: 'npm'
 
     - name: Install dependencies
       run: npm install
@@ -24,8 +25,14 @@ jobs:
     - name: Build VuePress site
       run: npm run docs:build
 
+    - name: Add CNAME for custom domain
+      run: echo "docs.example.com" > docs/.vuepress/dist/CNAME
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vuepress/dist
+
+    - name: Show GitHub Pages URL
+      run: echo "https://chenximoon.github.io/DailyNotes/"
