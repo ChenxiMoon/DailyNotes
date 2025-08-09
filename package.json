@@ -21,6 +21,7 @@
   "homepage": "https://github.com/ChenxiMoon/DailyNotes#readme",
   "devDependencies": {
     "@vuepress/bundler-vite": "^2.0.0-rc.24",
+    "@vuepress/theme-default": "^1.9.10",
     "vuepress": "^2.0.0-rc.24"
   },
   "dependencies": {
