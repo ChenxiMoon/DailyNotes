@@ -1,7 +1,7 @@
 {
   "name": "dailynotes",
   "version": "1.0.0",
-  "description": "",
+  "description": "我的笔记",
   "main": "index.js",
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -13,16 +13,16 @@
     "url": "git+https://github.com/ChenxiMoon/DailyNotes.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "ChenxiMoon 2403133073@qq.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ChenxiMoon/DailyNotes/issues"
   },
   "homepage": "https://github.com/ChenxiMoon/DailyNotes#readme",
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.24",
-    "@vuepress/theme-default": "^1.9.10",
-    "vuepress": "^2.0.0-rc.24"
+    "vuepress": "^2.0.0",
+    "@vuepress/theme-default": "^2.0.0",
+    "@vuepress/bundler-vite": "^2.0.0"
   },
   "dependencies": {
     "ansi-regex": "^6.1.0",
@@ -110,10 +110,6 @@
     "superjson": "^2.2.2",
     "to-regex-range": "^5.0.1",
     "uc.micro": "^2.1.0",
-    "undici-types": "^7.10.0",
-    "unicorn-magic": "^0.3.0",
-    "universalify": "^2.0.1",
-    "upath": "^2.0.1",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   }
