@@ -2,7 +2,7 @@
  * @Author: ChenxiMoon 2403133073@qq.com
  * @Date: 2025-08-08 22:54:29
  * @LastEditors: ChenxiMoon 2403133073@qq.com
- * @LastEditTime: 2025-08-09 13:22:39
+ * @LastEditTime: 2025-08-09 13:30:17
  * @FilePath: \f:\Zmk\DailyNotes\docs\.vuepress\config.js
  * @Description: 使用自动侧边栏配置
  */
