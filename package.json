@@ -19,11 +19,11 @@
     "url": "https://github.com/ChenxiMoon/DailyNotes/issues"
   },
   "homepage": "https://github.com/ChenxiMoon/DailyNotes#readme",
-  "devDependencies": {
-    "vuepress": "^2.0.0",
-    "@vuepress/theme-default": "^2.0.0",
-    "@vuepress/bundler-vite": "^2.0.0"
-  },
+ "devDependencies": {
+  "vuepress": "^2.0.0-rc.24",
+  "@vuepress/theme-default": "^2.0.0-rc.24",
+  "@vuepress/bundler-vite": "^2.0.0-rc.24"
+},
   "dependencies": {
     "ansi-regex": "^6.1.0",
     "anymatch": "^3.1.3",
